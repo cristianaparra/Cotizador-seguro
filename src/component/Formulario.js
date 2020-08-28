@@ -43,6 +43,7 @@ const Formulario = () => {
                     value='completo'
                 /> Completo
             </div>
+            <button>Cotizar</button>
         </form>
 
     );
