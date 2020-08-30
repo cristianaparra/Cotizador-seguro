@@ -18,9 +18,27 @@ padding: 1rem;
 border: 1px solid #e1e1e1;
 -webkit-appearance: none;
 `;
+
 const InputRadio = styled.input`
 margin: 0 1rem;
 `;
+const Boton = styled.button`
+background-color: #00838f;
+font-size: 16px;
+width: 100%;
+padding: 1rem;
+color: #fff;
+text-weight: bold;
+text-transform: uppercade;
+border:none;
+transition: background-color .3s ease;
+
+&:hover{
+    background-color: #26c6da;
+    cursor: pointer;
+}
+`
+
 
 const Formulario = () => {
     return (
@@ -64,7 +82,7 @@ const Formulario = () => {
                     value='completo'
                 /> Completo
             </Campo>
-            <button>Cotizar</button>
+            <Boton>Cotizar</Boton>
         </form>
 
     );
