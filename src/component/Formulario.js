@@ -50,7 +50,7 @@ border:none;
 transition: background-color .3s ease;
 `
 
-const Formulario = () => {
+const Formulario = ({ guardarResumen }) => {
 
     const [datos, guardarDatos] = useState({
         marca: '',
@@ -102,7 +102,10 @@ const Formulario = () => {
         resultado = parseFloat(incrementoPlan * resultado).toFixed(2);
         console.log(resultado)
         //total
-
+        guardarResumen({
+            cotizacion: resultado,
+            datos
+        })
     }
 
     return (
