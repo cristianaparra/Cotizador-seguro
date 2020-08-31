@@ -50,7 +50,7 @@ border:none;
 transition: background-color .3s ease;
 `
 
-const Formulario = ({ guardarResumen }) => {
+const Formulario = ({ guardarResumen, guardarCargando }) => {
 
     const [datos, guardarDatos] = useState({
         marca: '',
@@ -86,13 +86,9 @@ const Formulario = ({ guardarResumen }) => {
         const diferencia = obtenerDiferencia(year);
         //por cada año hayt que restar el 3%
         resultado -= ((diferencia * 3) * resultado) / 100;
-        //americano 15
 
-        //asitaico 5%
-
-        //europeo 30%
         resultado = calcularMarca(marca) * resultado;
-        console.log(resultado)
+
 
 
         const incrementoPlan = obtenerPlan(plan);
@@ -100,12 +96,20 @@ const Formulario = ({ guardarResumen }) => {
         //completo 50%
 
         resultado = parseFloat(incrementoPlan * resultado).toFixed(2);
-        console.log(resultado)
-        //total
-        guardarResumen({
-            cotizacion: resultado,
-            datos
-        })
+
+        //spiner
+        guardarCargando(true);
+
+        setTimeout(() => {
+            guardarCargando(false);
+            //pasa info a componente principal
+            guardarResumen({
+                cotizacion: resultado,
+                datos
+            })
+
+        }, 3000)
+
     }
 
     return (
